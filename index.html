@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Trigger Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: transparent;
+        }
+        .message {
+            display: none;
+            font-size: 48px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="smashMessage" class="message">SMASH!</div>
+    <div id="passMessage" class="message">PASS!</div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 's') {
+                showMessage('smashMessage');
+            } else if (event.key === 'p') {
+                showMessage('passMessage');
+            }
+        });
+
+        function showMessage(id) {
+            const message = document.getElementById(id);
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 2000);  // Message is displayed for 2 seconds
+        }
+    </script>
+</body>
+</html>
